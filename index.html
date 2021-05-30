@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+		// Task 1
+		var stringsInCebab = ['border-top-left-width', 'font-size', 'background-color'];
+
+		function camelize(str) {
+			var stringsInCamel = str.map(function(phrase) {
+				  var strItem = phrase.split('-').map(function(word, index) {
+				  	return index === 0 ? word : word[0].toUpperCase() + word.slice(1);
+				  }).join('');
+				  return strItem;
+			})
+			return stringsInCamel;
+		}
+
+		console.log(camelize(stringsInCebab));
+
+
+		// Taks 2 map
+		var exampleArr = [1, 2, 3, 4, 5, 6];
+
+		function exampleMapFunction(item, index, array){
+			return item = item ** 2;
+		}
+
+		function customMap(arr, callback) {
+			var resultArr = [];
+			for (var index = 0; index <= arr.length - 1; index++) {
+		        resultArr.push(callback(arr[index], index, arr));
+		    }
+			return resultArr;
+		}
+
+		console.log(customMap(exampleArr, exampleMapFunction));
+
+		// Taks 2 filter
+		function exampleFilterFunction(item, index, array){
+			return item % 2 === 0;
+		}
+
+		function customFilter(arr, callback) {
+			var resultArr = [];
+			for (var index = 0; index <= arr.length - 1; index++) {
+				if(callback(arr[index], index, arr)) {
+					resultArr.push(arr[index])
+				}
+			}
+			return resultArr;
+		}
+
+		console.log(customFilter(exampleArr, exampleFilterFunction));
+	</script>
+</body>
+</html>
